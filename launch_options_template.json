@@ -1,0 +1,119 @@
+{
+  "game_name": "Mario Kart World",
+  "version": "1.0.0 (PC Recomp)",
+  "icon": "game_icon.ico",
+  "icon_png": "game_icon.png",
+  "working_dir": ".",
+  "command": [
+    "mkw.exe",
+    "--play"
+  ],
+  "options": [
+    {
+      "id": "fullscreen",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_FULLSCREEN",
+      "on_value": "1",
+      "off_value": "0",
+      "label": "Mode Plein Écran au démarrage (F11 pour basculer)",
+      "description": "Désactivé par défaut (fenêtré 1280x720). En jeu, appuyez sur F11 à tout moment pour basculer en plein écran sans bordure.",
+      "default": false
+    },
+    {
+      "id": "handheld",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_OPERATION_MODE",
+      "on_value": "handheld",
+      "off_value": "docked",
+      "label": "Mode Portable (720p) au lieu de Docked",
+      "description": "Lance le jeu en profil portable plutôt qu'en mode docké.",
+      "default": false
+    },
+    {
+      "id": "fps60",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_FPS",
+      "on_value": "60",
+      "off_value": "auto",
+      "label": "Forcer 60 FPS (au lieu d'Automatique)",
+      "description": "Verrouille la cible à 60 FPS au lieu d'adapter automatiquement à 30/20/15 FPS sur GPU plus modeste.",
+      "default": false
+    },
+    {
+      "id": "framegen",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_FRAMEGEN",
+      "on_value": "auto",
+      "off_value": "off",
+      "label": "Génération de frames (Frame Generation)",
+      "description": "Génère des images intermédiaires pour fluidifier l'affichage (peut ajouter 1 frame de latence).",
+      "default": false
+    },
+    {
+      "id": "low_latency",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_LOW_LATENCY",
+      "on_value": "1",
+      "off_value": "0",
+      "label": "Basse latence (Low Latency)",
+      "description": "Démarre chaque frame le plus tard possible pour réduire la latence d'entrée.",
+      "default": true
+    },
+    {
+      "id": "vsync",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_VK_PRESENT",
+      "on_value": "fifo",
+      "off_value": "mailbox",
+      "label": "Activer la VSync stricte (FIFO)",
+      "description": "Utilise le mode de présentation Vulkan FIFO au lieu de Mailbox.",
+      "default": false
+    },
+    {
+      "id": "perf_overlay",
+      "category": "Affichage & Audio",
+      "env_var": "MKW_PERF_OVERLAY",
+      "on_value": "fps",
+      "off_value": "off",
+      "label": "Afficher le compteur FPS (Overlay)",
+      "description": "Affiche les FPS en surimpression pendant la partie.",
+      "default": false
+    },
+    {
+      "id": "skip_movies",
+      "category": "Gameplay & Hacks",
+      "env_var": "MKW_SKIP_MOVIES",
+      "on_value": "1",
+      "off_value": "0",
+      "label": "Passer les cinématiques d'intro",
+      "description": "Saute automatiquement les vidéos d'introduction au lancement.",
+      "default": false
+    },
+    {
+      "id": "turbo",
+      "category": "Gameplay & Hacks",
+      "env_var": "MKW_TURBO",
+      "on_value": "1",
+      "off_value": "0",
+      "label": "Activer le mode Turbo (touche F2)",
+      "description": "Permet d'accélérer le jeu en maintenant ou basculant avec F2.",
+      "default": false
+    },
+    {
+      "id": "unlock_all",
+      "category": "Gameplay & Hacks",
+      "env_var": "MKW_UNLOCK_ALL",
+      "on_value": "1",
+      "off_value": "0",
+      "label": "Tout débloquer (circuits, personnages, véhicules)",
+      "description": "Débloque l'ensemble du contenu dès le démarrage.",
+      "default": false
+    }
+  ],
+  "env": {
+    "MKW_GAME_DIR": ".",
+    "MKW_LANG": "fr",
+    "MKW_MENU_LANG": "fr",
+    "MKW_WINDOW_SIZE": "1280x720"
+  }
+}

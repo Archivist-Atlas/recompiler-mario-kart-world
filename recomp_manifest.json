@@ -1,0 +1,19 @@
+{
+  "id": "mario-kart-world",
+  "name": "Mario Kart World",
+  "recompiler_name": "mkw-recomp (adriadam10)",
+  "title_ids": [
+    "0400C3F00006E000",
+    "0400C3F00006E800"
+  ],
+  "supported_versions": [
+    0,
+    524288
+  ],
+  "default_output_subdir": "Mario Kart World",
+  "shortcut_name": "Mario Kart World",
+  "windows_entrypoint": "install.ps1",
+  "script": "install.ps1",
+  "icon": "game_icon.ico",
+  "description": "Recompile Mario Kart World (Nintendo Switch 2, 1.0.0 / 1.8.0 depuis votre .nup) en exécutable Windows PC natif (SDL3 / Vulkan, mode fenêtré par défaut, plein écran via F11)."
+}
