@@ -1,4 +1,4 @@
-﻿# Mario Kart World PC Recompiler for Windows (driven by Switch2Recomp)
+# Mario Kart World PC Recompiler for Windows (driven by Switch2Recomp)
 # Uses bundled mkw-recomp Windows runtime + portable setup toolchain
 # (Python, Zig, glslc, recomp/, sm86/) to recompile the game from a .nup dump (offline, no external download).
 param(
