@@ -1,4 +1,4 @@
-# Mario Kart World PC Recompiler for Windows (driven by Switch2Recomp)
+﻿# Mario Kart World PC Recompiler for Windows (driven by Switch2Recomp)
 # Uses bundled mkw-recomp Windows runtime + portable setup toolchain
 # (Python, Zig, glslc, recomp/, sm86/) to recompile the game from a .nup dump (offline, no external download).
 param(
@@ -30,8 +30,18 @@ $setupPy = Join-Path $source "toolchain\python\python.exe"
 $preparePy = Join-Path $source "tools\prepare\prepare.py"
 $buildPy = Join-Path $source "tools\build\build.py"
 
-# ---- 1. Build native Windows PC runtime (mkw.exe) from bundled sources with MSYS2 Clang64 ----
+# ---- 1. Ensure MSYS2 Clang64 (via global NUP Studio installer) & build mkw.exe ----
 $clang64Bin = "C:\msys64\clang64\bin"
+$globalMsysInstaller = Join-Path $source "..\..\install_msys2.ps1"
+if (-not (Test-Path -LiteralPath (Join-Path $clang64Bin "clang.exe")) -or -not (Test-Path -LiteralPath (Join-Path $clang64Bin "clang++.exe")) -or -not (Test-Path -LiteralPath (Join-Path $clang64Bin "ninja.exe")) -or -not (Test-Path -LiteralPath "C:\msys64\clang64\include\SDL3\SDL.h")) {
+    if (Test-Path -LiteralPath $globalMsysInstaller) {
+        & $globalMsysInstaller -Msys "C:\msys64"
+        if ($LASTEXITCODE -ne 0) {
+            Say "MSYS2 installation cancelled or failed; stopping recompilation."
+            exit 1
+        }
+    }
+}
 foreach ($req in @($setupPy, $preparePy, $buildPy, (Join-Path $clang64Bin "clang.exe"), (Join-Path $clang64Bin "clang++.exe"), (Join-Path $clang64Bin "ninja.exe"))) {
     if (-not (Test-Path -LiteralPath $req)) {
         Say "error: required component missing: $req"
