@@ -3,6 +3,7 @@
   "version": "1.0.0 (PC Recomp)",
   "icon": "game_icon.ico",
   "icon_png": "game_icon.png",
+  "rom_env_var": "MKW_RECOMP_NUP",
   "working_dir": ".",
   "command": [
     "mkw.exe",

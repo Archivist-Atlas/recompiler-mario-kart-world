@@ -1,4 +1,4 @@
-# Mario Kart World PC Recompiler for Windows (driven by Switch2Recomp)
+﻿# Mario Kart World PC Recompiler for Windows (driven by Switch2Recomp)
 # Uses bundled mkw-recomp Windows runtime + portable setup toolchain
 # (Python, Zig, glslc, recomp/, sm86/) to recompile the game from a .nup dump (offline, no external download).
 param(
@@ -198,6 +198,7 @@ $launchConfigPath = Join-Path $Dir "launch_options.json"
 if (Test-Path -LiteralPath $launchTplPath) {
     $tpl = Get-Content -LiteralPath $launchTplPath -Raw -Encoding UTF8 | ConvertFrom-Json
     $tpl | Add-Member -NotePropertyName "working_dir" -NotePropertyValue $Dir -Force
+    $tpl | Add-Member -NotePropertyName "rom_path" -NotePropertyValue $Nup -Force
     $tpl | Add-Member -NotePropertyName "command" -NotePropertyValue @((Join-Path $Dir "mkw.exe"), "--play") -Force
     if ($tpl.env) {
         $tpl.env | Add-Member -NotePropertyName "MKW_GAME_DIR" -NotePropertyValue $Dir -Force
