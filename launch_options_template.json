@@ -116,5 +116,9 @@
     "MKW_LANG": "fr",
     "MKW_MENU_LANG": "fr",
     "MKW_WINDOW_SIZE": "1280x720"
-  }
+  },
+  "expected_title_ids": [
+    "0400C3F00006E000",
+    "0400C3F00006E800"
+  ]
 }
